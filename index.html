@@ -93,7 +93,7 @@
             position: absolute;
             bottom: 15px;
             left: 20px;
-            background: url(/globe/ce.png);
+            background: url(./globe/ce.png);
         }
 
         .title {
@@ -135,7 +135,7 @@ z-index: 1000;"></div>
         }, "/globe/");
 
         var xhr = typeof XMLHttpRequest != 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-        xhr.open('get', "/globe/population909500.json", true);
+        xhr.open('get', "./globe/population909500.json", true);
         xhr.onreadystatechange = function () {
             var status;
             var data;
