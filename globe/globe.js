@@ -213,9 +213,9 @@ DAT.Globe = function (container, colorFn, texture) {
 
          var zoomDamp = distance / 1000;
 
-         target.x = targetOnDown.x + (mouse.x - mouseOnDown.x) * 0.005 * zoomDamp;
+         target.x = targetOnDown.x + (mouse.x - mouseOnDown.x) * 0.005;
 
-
+console.log(target.x);
 
       }
 
@@ -306,7 +306,7 @@ DAT.Globe = function (container, colorFn, texture) {
     function render() {
         zoom(curZoomSpeed);
 
-        target.x += 0.001;
+        target.x += 0.0001;
 
         rotation.x += (target.x - rotation.x) * 0.1;
         rotation.y += (target.y - rotation.y) * 0.1;
