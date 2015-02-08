@@ -179,6 +179,9 @@ DAT.Globe = function (container, colorFn, texture) {
         container.addEventListener('mouseout', function () {
             overRenderer = false;
         }, false);
+
+        document.addEventListener( 'touchstart', onDocumentTouchStart, false );
+        document.addEventListener( 'touchmove', onDocumentTouchMove, false );
     }
 
     this.init = init;
@@ -232,6 +235,32 @@ DAT.Globe = function (container, colorFn, texture) {
         }
         return false;
     }
+
+
+    function onDocumentTouchStart( event ) {
+
+      if ( event.touches.length == 1 ) {
+
+        event.preventDefault();
+
+        mouseXOnMouseDown = event.touches[ 0 ].pageX - windowHalfX;
+        targetRotationOnMouseDown = targetRotation;
+
+      }
+    }
+
+    function onDocumentTouchMove( event ) {
+
+      if ( event.touches.length == 1 ) {
+
+        event.preventDefault();
+        
+        mouseX = event.touches[ 0 ].pageX - windowHalfX;
+        targetRotation = targetRotationOnMouseDown + ( mouseX - mouseXOnMouseDown ) * 0.05;
+
+      }
+    }
+
 
     function onDocumentKeyDown(event) {
         switch (event.keyCode) {
