@@ -218,7 +218,6 @@ DAT.Globe = function(container, colorFn, texture) {
 
     if (event.touches.length === 1) {
 
-      event.preventDefault();
 
       mouseOnDown.x = event.touches[0].pageX;
       targetOnDown.x = target.x;
