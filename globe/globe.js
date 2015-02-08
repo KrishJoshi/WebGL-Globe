@@ -236,12 +236,11 @@ DAT.Globe = function(container, colorFn, texture) {
       event.preventDefault();
       mouse.x = event.touches[0].pageX;
 
-
       var zoomDamp = distance / 1000;
 
-      target.x = targetOnDown.x - (mouse.x - mouseOnDown.x) * 0.005 * zoomDamp;
+      target.x = targetOnDown.x - ( (mouse.x - mouseOnDown.x) * 0.005 * zoomDamp);
 
-      console.log(target.x);
+      console.log(mouse.x);
 
     }
 
