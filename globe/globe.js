@@ -186,6 +186,42 @@ DAT.Globe = function (container, colorFn, texture) {
 
     this.init = init;
 
+
+    function onDocumentTouchStart( event ) {
+
+      if ( event.touches.length === 1 ) {
+
+        event.preventDefault();
+
+        mouseOnDown.x = - event.touches[ 0 ].pageX;
+        targetOnDown.x = target.x;
+
+        container.style.cursor = 'move';
+
+      }
+
+    }
+
+    function onDocumentTouchMove( event ) {
+
+      if ( event.touches.length === 1 ) {
+
+        event.preventDefault();
+
+         mouse.x = event.touches[ 0 ].pageX - windowHalfX;
+
+
+         var zoomDamp = distance / 1000;
+
+         target.x = targetOnDown.x + (mouse.x - mouseOnDown.x) * 0.005 * zoomDamp;
+
+
+
+      }
+
+    }
+
+
     function onMouseDown(event) {
         event.preventDefault();
 
@@ -235,32 +271,6 @@ DAT.Globe = function (container, colorFn, texture) {
         }
         return false;
     }
-
-
-    function onDocumentTouchStart( event ) {
-
-      if ( event.touches.length == 1 ) {
-
-        event.preventDefault();
-
-        mouseXOnMouseDown = event.touches[ 0 ].pageX - windowHalfX;
-        targetRotationOnMouseDown = targetRotation;
-
-      }
-    }
-
-    function onDocumentTouchMove( event ) {
-
-      if ( event.touches.length == 1 ) {
-
-        event.preventDefault();
-        
-        mouseX = event.touches[ 0 ].pageX - windowHalfX;
-        targetRotation = targetRotationOnMouseDown + ( mouseX - mouseXOnMouseDown ) * 0.05;
-
-      }
-    }
-
 
     function onDocumentKeyDown(event) {
         switch (event.keyCode) {
