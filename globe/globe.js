@@ -213,7 +213,7 @@ DAT.Globe = function (container, colorFn, texture) {
 
          var zoomDamp = distance / 1000;
 
-         target.x = targetOnDown.x + (mouse.x - mouseOnDown.x) * 0.005 * zoomDamp;
+         target.x = targetOnDown.x - (mouse.x - mouseOnDown.x) * 0.005 * zoomDamp;
 
 console.log(target.x);
 
