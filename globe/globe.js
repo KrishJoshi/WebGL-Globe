@@ -207,8 +207,7 @@ DAT.Globe = function (container, colorFn, texture) {
       if ( event.touches.length === 1 ) {
 
         event.preventDefault();
-        var windowHalfX = window.innerWidth / 2;
-         mouse.x = event.touches[ 0 ].pageX - windowHalfX;
+         mouse.x = event.touches[ 0 ].pageX;
 
 
          var zoomDamp = distance / 1000;
